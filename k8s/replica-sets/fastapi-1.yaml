@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: fastapi-1-replicaset
+spec:
+  template:
+    metadata:
+      name: pod-fastapi-1
+      labels:
+        app: fastapi-1
+    spec:
+      containers:
+        - name: fastapi-container
+          image: fastapi-app
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: fastapi-1-configmap
+  replicas: 3
+  selector:
+    matchLabels:
+      app: fastapi-1

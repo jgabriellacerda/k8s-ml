@@ -11,6 +11,6 @@ spec:
       imagePullPolicy: IfNotPresent
       ports:
         - containerPort: 80 
-      env:
-        - name: APP_NAME
-          value: "fastapi-2"
+      envFrom:
+        - configMapRef:
+            name: fastapi-2-configmap

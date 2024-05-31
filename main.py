@@ -1,6 +1,6 @@
-# main.py
 from os import getenv
 from fastapi import FastAPI
+from transformers import pipeline # type: ignore
 
 app = FastAPI()
 
@@ -8,6 +8,8 @@ app = FastAPI()
 def read_root():
     return f"Hello from {getenv('APP_NAME')}"
 
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: str | None = None):
-    return {"item_id": item_id, "q": q}
+@app.post("/predict")
+def predict(text: str):
+    classifier = pipeline("sentiment-analysis")
+    result = classifier(text)
+    return result

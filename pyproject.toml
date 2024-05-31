@@ -10,10 +10,13 @@ package-mode = false
 python = "^3.11"
 fastapi = "^0.111.0"
 uvicorn = "^0.30.0"
+transformers = {extras = ["torch"], version = "^4.41.2"}
 
 [tool.poetry.group.dev.dependencies]
 poetry = "^1.8.3"
 mypy = "^1.10.0"
+ipykernel = "^6.29.4"
+requests = "^2.32.3"
 
 [build-system]
 requires = ["poetry-core"]

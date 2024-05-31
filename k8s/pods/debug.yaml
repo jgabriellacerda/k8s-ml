@@ -5,7 +5,6 @@ metadata:
 spec:
   containers:
   - name: debug-container
-    image: ubuntu:latest
-    command: ["/bin/bash", "-c", "sleep infinity"]  # Keep the container running
+    image: ubuntu:curl
     tty: true
     stdin: true

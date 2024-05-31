@@ -12,6 +12,8 @@ RUN pip install poetry
 COPY pyproject.toml poetry.lock /app/
 RUN poetry install --no-interaction --no-ansi --no-cache
 
+RUN python -c "from transformers import pipeline; _ = pipeline('sentiment-analysis')"
+
 COPY main.py /app
 
 # Make port 80 available to the world outside this container
