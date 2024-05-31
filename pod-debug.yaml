@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-debug
+spec:
+  containers:
+  - name: debug-container
+    image: ubuntu:latest
+    command: ["/bin/bash", "-c", "sleep infinity"]  # Keep the container running
+    tty: true
+    stdin: true

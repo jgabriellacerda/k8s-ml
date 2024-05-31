@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-fastapi-1
+  labels:
+    app: fastapi-1
+spec:
+  containers:
+    - name: fastapi-container
+      image: fastapi-app
+      imagePullPolicy: IfNotPresent
+      ports:
+        - containerPort: 80
+      env:
+        - name: APP_NAME
+          value: "fastapi-1"

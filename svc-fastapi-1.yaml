@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-fastapi-1
+spec:
+  type: ClusterIP
+  selector:
+    app: fastapi-1
+  ports:
+    - port: 80
