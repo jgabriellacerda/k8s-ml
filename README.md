@@ -38,6 +38,12 @@ kubectl apply -f k8s/services/fastapi-1.yaml
 kubectl apply -f k8s/services/fastapi-2.yaml
 ```
 
+Create Deployment:
+
+```
+kubectl apply -f k8s/deployments/fastapi-2.yaml
+```
+
 ## Dashboard:
 
 ```
