@@ -11,14 +11,26 @@ spec:
     spec:
       containers:
         - name: fastapi-container
-          image: fastapi-app:latest
+          image: fastapi-app:cuda
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80
           envFrom:
             - configMapRef:
                 name: fastapi-2-configmap
-  replicas: 6
+          resources:
+            limits:
+              cpu: 1
+            requests:
+              cpu: 1
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+            periodSeconds: 1
+            failureThreshold: 30
+            initialDelaySeconds: 1
+  # replicas: 6
   selector:
     matchLabels:
       app: fastapi-2-pod
